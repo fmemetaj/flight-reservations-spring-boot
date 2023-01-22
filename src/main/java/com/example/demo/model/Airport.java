@@ -4,6 +4,7 @@ import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.EnumSet;
+import java.util.Iterator;
 import java.util.List;
 
 @Getter
@@ -26,4 +27,14 @@ public enum Airport {
         List<Airport> airports = new ArrayList<>(EnumSet.allOf(Airport.class));
         return airports;
     }
+
+    public static List<String> airportNames(){
+        Iterator<Airport> iterable = retainList().iterator();
+        List<String> airportStringNames = new ArrayList<>();
+        while (iterable.hasNext()) {
+            airportStringNames.add(iterable.next().toString());
+        }
+        return airportStringNames;
+    }
+
 }
